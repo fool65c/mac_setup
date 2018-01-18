@@ -23,6 +23,8 @@ Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'tpope/vim-fugitive'
+Plugin 'bash-support.vim'
+Plugin 'docker/docker'
 
 " Bundles
 Bundle 'Valloric/YouCompleteMe'
@@ -46,17 +48,13 @@ nnoremap <C-H> <C-W><C-H>
 " Enable folding
 set foldmethod=indent
 set foldlevel=99
+let g:SimpylFold_docstring_preview=1
 
 " Enable folding with the spacebar
 nnoremap <space> za
 
 " run test with CTRL-T
-" nnoremap <C-T> ! pytest
 map <C-T> :!pytest<CR>
-" map <C-T> :new | 0read ! pytest
-
-
-let g:SimpylFold_docstring_preview=1
 
 " pep8 indentation
 au BufNewFile,BufRead *.py
@@ -92,7 +90,7 @@ syntax on
 colorscheme zenburn
 
 " nerdTree config
-let NERDTreeIgnore=['\.pyc$', '\~$', '__pycache__'] "ignore files in NERDTree
+let NERDTreeIgnore=['\.pyc$', '\~$', '__pycache__', '.git'] "ignore files in NERDTree
 map <C-n> :NERDTreeToggle<CR>
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
