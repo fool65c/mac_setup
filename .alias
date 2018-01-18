@@ -1,0 +1,1 @@
+alias pythonWebServer="python -m SimpleHTTPServer"
